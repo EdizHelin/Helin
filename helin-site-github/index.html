@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dünya'nın En Harika Sevgilisi, Helin'im ❤️</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Canvas Confetti Library for Correct Answer Celebration -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ocean: {
+                            deep: '#0a2540',
+                            navy: '#0077b6',
+                            bright: '#00b4d8',
+                            light: '#90e0ef',
+                            soft: '#e0f7fa'
+                        },
+                        sunflower: {
+                            DEFAULT: '#ffb703',
+                            gold: '#fb8500',
+                            light: '#ffea00'
+                        },
+                        sunshine: {
+                            DEFAULT: '#e9d8a6',
+                            bright: '#f4a261',
+                            gold: '#ee9b00'
+                        },
+                        leaf: {
+                            DEFAULT: '#2a9d8f',
+                            light: '#a7c957',
+                            soft: '#e9f5ed'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Custom Styles & Glassmorphic Effects */
+        body {
+            background: linear-gradient(135deg, #06192a 0%, #0a2540 40%, #004b76 75%, #0077b6 100%);
+            color: #f8fafc;
+            min-height: 100vh;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(10, 37, 64, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .glass-card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .glass-card-hover:hover {
+            transform: translateY(-8px) scale(1.01);
+            border-color: rgba(255, 183, 3, 0.4);
+            box-shadow: 0 15px 35px 0 rgba(0, 180, 216, 0.25);
+        }
+
+        .text-gradient-gold {
+            background: linear-gradient(135deg, #ffea00 0%, #ffb703 50%, #f4a261 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .text-gradient-ocean {
+            background: linear-gradient(135deg, #90e0ef 0%, #00b4d8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Swimming Fish Animation */
+        .swimming-fish {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.65;
+            animation: swimHorizontal linear infinite;
+        }
+
+        @keyframes swimHorizontal {
+            0% {
+                transform: translateX(-10vw) translateY(0px) scaleX(1);
+            }
+            50% {
+                transform: translateX(50vw) translateY(-25px) scaleX(1);
+            }
+            51% {
+                transform: translateX(50vw) translateY(-25px) scaleX(-1);
+            }
+            100% {
+                transform: translateX(110vw) translateY(0px) scaleX(-1);
+            }
+        }
+
+        /* Floating Hearts Particles */
+        .heart-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatUp 8s linear infinite;
+            opacity: 0;
+            z-index: 0;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(0.5);
+                opacity: 0;
+            }
+            20% { opacity: 0.8; }
+            80% { opacity: 0.8; }
+            100% {
+                transform: translateY(-10vh) rotate(360deg) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Pulse glow animation */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(255, 183, 3, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(255, 183, 3, 0.6); }
+        }
+
+        .glow-effect {
+            animation: pulseGlow 3s infinite;
+        }
+
+        /* Love Languages Cards */
+        @keyframes cardIn {
+            0% { opacity: 0; transform: translateY(16px) scale(0.97); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .lang-card {
+            opacity: 0;
+            animation: cardIn 0.5s ease forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0a2540; }
+        ::-webkit-scrollbar-thumb { background: #0077b6; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2a9d8f; }
+    </style>
+</head>
+<body class="relative selection:bg-sunflower selection:text-ocean-deep">
+
+    <!-- Floating Background Particles (Hearts & Sunflowers) -->
+    <div id="hearts-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Swimming Fish Layer -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="swimming-fish text-2xl text-ocean-bright" style="top: 20%; animation-duration: 22s; animation-delay: 0s;">🐠</div>
+        <div class="swimming-fish text-xl text-sunflower" style="top: 45%; animation-duration: 28s; animation-delay: 5s;">🐟</div>
+        <div class="swimming-fish text-3xl text-leaf-light" style="top: 75%; animation-duration: 25s; animation-delay: 10s;">🐡</div>
+    </div>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 glass-card border-b border-white/10 px-4 py-3 md:px-8">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl animate-spin" style="animation-duration: 12s;">🌻</span>
+                <span class="font-serif font-bold text-lg md:text-xl text-gradient-gold">Helin & Eziko</span>
+            </div>
+            
+            <div class="flex items-center gap-3">
+                <!-- Music Control Button -->
+                <button id="bg-music-toggle" onclick="toggleAudio()" class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-xs md:text-sm flex items-center gap-2 transition-all">
+                    <i id="music-icon" class="fa-solid fa-music text-sunflower"></i>
+                    <span id="music-text">Müziği Başlat</span>
+                </button>
+                <!-- Customization Modal Toggle -->
+                <button onclick="openEditModal()" class="px-3 py-1.5 rounded-full bg-leaf/20 hover:bg-leaf/40 border border-leaf/40 text-leaf-light text-xs md:text-sm flex items-center gap-1.5 transition-all">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span class="hidden sm:inline">Düzenle</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="relative z-10 max-w-5xl mx-auto px-4 py-8 space-y-16 md:space-y-24">
+
+        <!-- HERO SECTION -->
+        <section class="text-center pt-8 md:pt-12 space-y-6">
+            <div class="inline-block px-4 py-1.5 rounded-full bg-sunflower/10 border border-sunflower/30 text-sunflower text-xs md:text-sm font-medium tracking-wide mb-2 animate-bounce">
+                🌻 Sana Aşığımmm, Sana Bayılıyorummm, Sana Bitiyorummm, Seni Seviyorummm 🌊
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-serif font-bold leading-tight text-gradient-gold drop-shadow-md">
+                Dünya'nın En Harika Sevgilisi,<br/>Helin'im ❤️
+            </h1>
+            
+            <p class="text-base sm:text-lg md:text-xl text-ocean-light max-w-2xl mx-auto font-light leading-relaxed">
+                “Seni dün, bugün, yarın ve sonsuza kadar seviyorummm. Senin her zaman yanındayım. Seninle gurur duyuyorum bebi. İyi ki seninle tanışmışım. Dünya’nın en harika sevgilisi❤️❤️❤️❤️"
+            </p>
+
+            <div class="pt-4 flex flex-wrap justify-center gap-4">
+                <a href="#activism" class="px-6 py-3 rounded-full bg-gradient-to-r from-sunflower to-sunflower-gold text-ocean-deep font-bold shadow-lg hover:brightness-110 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-earth-americas"></i> Değişim Elçim
+                </a>
+                <a href="#time-counter" class="px-6 py-3 rounded-full bg-gradient-to-r from-ocean-bright to-ocean-navy text-white font-medium shadow-lg hover:shadow-ocean-bright/40 transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-clock"></i> Zaman Sayacımız
+                </a>
+                <a href="#quiz-section" class="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sunflower font-medium transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-heart"></i> Sürpriz Quiz
+                </a>
+            </div>
+
+            <!-- "Seni seviyorum" in 50 languages button -->
+            <div class="pt-2">
+                <button onclick="openLoveLanguages()" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-pink-500 to-sunflower text-white font-bold shadow-lg hover:brightness-110 hover:scale-105 active:scale-95 transition-all text-sm sm:text-base">
+                    💌 Seni Çok Seviyorum. Peki bunu nasıl söyleyebilirim? 🌍
+                </button>
+            </div>
+        </section>
+
+        <!-- ACTIVISM & HEROINE SECTION (DEĞİŞİM ELÇİSİ & GURUR KÖŞESİ) -->
+        <section id="activism" class="glass-card rounded-3xl p-6 sm:p-10 relative overflow-hidden border-sunflower/30">
+            <div class="absolute -top-12 -left-12 w-48 h-48 bg-sunflower/10 rounded-full blur-3xl pointer-events-none"></div>
+            
+            <div class="space-y-6">
+                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b border-white/10 pb-6">
+                    <div>
+                        <span class="text-sunflower text-xs font-semibold tracking-widest uppercase">Benim Bilinçli Elçim</span>
+                        <h2 class="text-2xl sm:text-4xl font-serif font-bold text-white flex items-center gap-2 mt-1">
+                            Değişim Elçim Helin ✨ 🌍
+                        </h2>
+                    </div>
+                    <span class="px-4 py-1.5 rounded-full bg-leaf/20 border border-leaf/40 text-leaf-light text-xs font-semibold flex items-center gap-1.5">
+                        <i class="fa-solid fa-seedling"></i> İklim Krizi'nin Önemini Seninle Öğrendim
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- COP Banner Card -->
+                    <div class="glass-card p-5 rounded-2xl border-sunflower/20 flex flex-col justify-between space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-sunflower/20 flex items-center justify-center text-sunflower text-xl">
+                            <i class="fa-solid fa-bullhorn"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-sunflower">COP Konferansı Konuşmacısı Rolün 🎙️</h3>
+                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                Küresel iklim krizine karşı sesini duyurmak için uluslararası COP konferansında rol alacaksın. Üniversite'de hiç kimse senin gösterdiğin çabayı göstermiyor. Çaban çok eşsiz hayatım. Seninle sonsuz gurur duyuyorum.
+                            </p>
+                        </div>
+                        <span class="text-[10px] text-ocean-light italic">#ClimateAction #YouthLeader</span>
+                    </div>
+
+                    <!-- TEGV & Volunteer -->
+                    <div class="glass-card p-5 rounded-2xl border-leaf/20 flex flex-col justify-between space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-leaf/20 flex items-center justify-center text-leaf-light text-xl">
+                            <i class="fa-solid fa-hand-holding-heart"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-leaf-light">TEGV Gönüllüm 💚</h3>
+                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                Çocukların geleceğine dokunan, onların eğitiminde rol almak için gönüllü olan tek tanıdığım kişisin. Deniko'nun ve çocukların seni neden çok secdiğini anlayabiliyorum bebii
+                            </p>
+                        </div>
+                        <span class="text-[10px] text-ocean-light italic">#TEGV #Gönüllülük</span>
+                    </div>
+
+                    <!-- Ocean & Sunflowers Love -->
+                    <div class="glass-card p-5 rounded-2xl border-ocean-bright/20 flex flex-col justify-between space-y-3">
+                        <div class="w-10 h-10 rounded-xl bg-ocean-bright/20 flex items-center justify-center text-ocean-bright text-xl">
+                            <i class="fa-solid fa-fish"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-ocean-bright">Balıklar & Ayçiçekleri 🐠🌻</h3>
+                            <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                                Denizlerin derinliklerindeki balıklara olan sevgin, yüzünü her zaman güneşe dönen ayçiçekleri. Çiçekçinin hikayesini unutmadım. O balık ise bana charm'ı hatırlatıyor. 
+                            </p>
+                        </div>
+                        <span class="text-[10px] text-ocean-light italic">#OceanLover #SunflowerEnergy</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- LIVE TIME COUNTER SECTION -->
+        <section id="time-counter" class="glass-card rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden border-sunflower/20 glow-effect">
+            <div class="space-y-3 mb-8">
+                <div class="text-leaf-light font-semibold text-sm tracking-wider uppercase">
+                    <i class="fa-solid fa-calendar-heart mr-2"></i>İlk Buluşmamızdan (1 Nisan) Beri
+                </div>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Birlikte Geçen Her Anımız</h2>
+                <p class="text-xs sm:text-sm text-gray-300">Sevginle hayatıma anlam kattığın o özel günden beri geçen süre:</p>
+            </div>
+
+            <!-- Counter Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4 max-w-4xl mx-auto">
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center">
+                    <span id="cnt-years" class="text-2xl sm:text-4xl font-bold text-sunflower font-serif">0</span>
+                    <span class="text-xs text-gray-300 mt-1 uppercase font-medium">Yıl</span>
+                </div>
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center">
+                    <span id="cnt-months" class="text-2xl sm:text-4xl font-bold text-sunflower font-serif">0</span>
+                    <span class="text-xs text-gray-300 mt-1 uppercase font-medium">Ay</span>
+                </div>
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center">
+                    <span id="cnt-days" class="text-2xl sm:text-4xl font-bold text-sunflower font-serif">0</span>
+                    <span class="text-xs text-gray-300 mt-1 uppercase font-medium">Gün</span>
+                </div>
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center">
+                    <span id="cnt-hours" class="text-2xl sm:text-4xl font-bold text-ocean-light font-serif">0</span>
+                    <span class="text-xs text-gray-300 mt-1 uppercase font-medium">Saat</span>
+                </div>
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center">
+                    <span id="cnt-minutes" class="text-2xl sm:text-4xl font-bold text-ocean-light font-serif">0</span>
+                    <span class="text-xs text-gray-300 mt-1 uppercase font-medium">Dakika</span>
+                </div>
+                <div class="glass-card p-3 sm:p-4 rounded-2xl border-white/10 flex flex-col justify-center bg-leaf/10 border-leaf/30">
+                    <span id="cnt-seconds" class="text-2xl sm:text-4xl font-bold text-leaf-light font-serif">0</span>
+                    <span class="text-xs text-leaf-light mt-1 uppercase font-medium">Saniye</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- INTERACTIVE QUIZ & HEART EXPLOSION SECTION -->
+        <section id="quiz-section" class="glass-card rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden border-leaf/30">
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="w-16 h-16 bg-leaf/20 rounded-full flex items-center justify-center mx-auto text-leaf-light text-2xl border border-leaf/30">
+                    <i class="fa-solid fa-heart-circle-check"></i>
+                </div>
+
+                <span class="text-sunflower text-xs font-semibold tracking-widest uppercase">Aşk Testi & Soru Köşesi</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Küçük Bir Sorum Var! ❓</h2>
+                <p class="text-sm text-gray-300">"Dünyanın en mücadeleci, iklim ve çocuk hakları savunucusu, gözleri en güzel değişim elçisi kimdir?"</p>
+
+                <!-- Options -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    <button onclick="handleQuizAnswer(false)" class="p-4 rounded-2xl glass-card hover:bg-white/10 border-white/10 text-sm font-medium transition-all hover:scale-105 active:scale-95">
+                        A) Greta Thunberg 🌍
+                    </button>
+                    <button onclick="handleQuizAnswer(true)" class="p-4 rounded-2xl bg-gradient-to-r from-sunflower/20 to-leaf/20 hover:from-sunflower/40 hover:to-leaf/40 border border-sunflower/40 text-sunflower font-bold text-base transition-all hover:scale-105 active:scale-95 shadow-md">
+                        B) Helin'im (Benim Sevgilim) ❤️🌻
+                    </button>
+                    <button onclick="handleQuizAnswer(false)" class="p-4 rounded-2xl glass-card hover:bg-white/10 border-white/10 text-sm font-medium transition-all hover:scale-105 active:scale-95">
+                        C) Birleşmiş Milletler Başkanı 🇺🇳
+                    </button>
+                </div>
+
+                <div id="quiz-feedback" class="hidden p-4 rounded-2xl bg-sunflower/20 border border-sunflower/40 text-sunflower font-serif text-lg font-bold animate-pulse">
+                    🎉 DOĞRU CEVAP! Sen benim her şeyimsin sevgilimmmmm! Aşığım sana böceğim benimmm❤️✨
+                </div>
+            </div>
+        </section>
+
+        <!-- SUDOKU PUZZLE SECTION FOR HELIN -->
+        <section class="glass-card rounded-3xl p-6 sm:p-8 relative overflow-hidden border-sunflower/30 max-w-xl mx-auto">
+            <div class="text-center space-y-2 mb-6">
+                <span class="text-sunflower text-xs font-semibold tracking-widest uppercase">Sudoku Sevgine Özel</span>
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white flex items-center justify-center gap-2">
+                    Helin'in, güzelimin Sudoku'su 🧩
+                </h2>
+                <p class="text-xs text-ocean-light">Sudokuya bayıldığını bildiğim için sana özel 9x9 minik bir bulmaca hazırladım! Eksik rakamları doldur ve sürprizi gör.</p>
+            </div>
+            <!-- 9x9 Grid (3x3'lük 9 kutu, çizgilerle ayrılmış) -->
+            <div class="grid grid-cols-3 gap-1 p-1 w-fit mx-auto bg-sunflower/60 rounded-2xl overflow-hidden border border-white/20">
+                <!-- Kutu 1 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">5</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">3</div>
+                    <input id="sudoku-0-2" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">6</div>
+                    <input id="sudoku-1-1" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-1-2" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-2-0" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">9</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">8</div>
+                </div>
+                <!-- Kutu 2 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-0-3" type="number" min="1" max="9" placeholder="?" data-answer="6" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">7</div>
+                    <input id="sudoku-0-5" type="number" min="1" max="9" placeholder="?" data-answer="8" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">1</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">9</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">5</div>
+                    <input id="sudoku-2-3" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-2-4" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-2-5" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 3 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-0-6" type="number" min="1" max="9" placeholder="?" data-answer="9" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-0-7" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-0-8" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-1-6" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-1-7" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-1-8" type="number" min="1" max="9" placeholder="?" data-answer="8" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-2-6" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">6</div>
+                    <input id="sudoku-2-8" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 4 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">8</div>
+                    <input id="sudoku-3-1" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-3-2" type="number" min="1" max="9" placeholder="?" data-answer="9" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">4</div>
+                    <input id="sudoku-4-1" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-4-2" type="number" min="1" max="9" placeholder="?" data-answer="6" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">7</div>
+                    <input id="sudoku-5-1" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-5-2" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 5 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-3-3" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">6</div>
+                    <input id="sudoku-3-5" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">8</div>
+                    <input id="sudoku-4-4" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">3</div>
+                    <input id="sudoku-5-3" type="number" min="1" max="9" placeholder="?" data-answer="9" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">2</div>
+                    <input id="sudoku-5-5" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 6 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-3-6" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-3-7" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">3</div>
+                    <input id="sudoku-4-6" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-4-7" type="number" min="1" max="9" placeholder="?" data-answer="9" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">1</div>
+                    <input id="sudoku-5-6" type="number" min="1" max="9" placeholder="?" data-answer="8" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-5-7" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">6</div>
+                </div>
+                <!-- Kutu 7 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-6-0" type="number" min="1" max="9" placeholder="?" data-answer="9" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">6</div>
+                    <input id="sudoku-6-2" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-7-0" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-7-1" type="number" min="1" max="9" placeholder="?" data-answer="8" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-7-2" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-8-0" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-8-1" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-8-2" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 8 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <input id="sudoku-6-3" type="number" min="1" max="9" placeholder="?" data-answer="5" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-6-4" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-6-5" type="number" min="1" max="9" placeholder="?" data-answer="7" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">4</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">1</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">9</div>
+                    <input id="sudoku-8-3" type="number" min="1" max="9" placeholder="?" data-answer="2" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">8</div>
+                    <input id="sudoku-8-5" type="number" min="1" max="9" placeholder="?" data-answer="6" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                </div>
+                <!-- Kutu 9 -->
+                <div class="grid grid-cols-3 gap-px bg-white/30">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">2</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">8</div>
+                    <input id="sudoku-6-8" type="number" min="1" max="9" placeholder="?" data-answer="4" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-7-6" type="number" min="1" max="9" placeholder="?" data-answer="6" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <input id="sudoku-7-7" type="number" min="1" max="9" placeholder="?" data-answer="3" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">5</div>
+                    <input id="sudoku-8-6" type="number" min="1" max="9" placeholder="?" data-answer="1" class="w-9 h-9 bg-ocean-navy text-center font-bold text-base text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-sunflower">
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">7</div>
+                    <div class="w-9 h-9 bg-ocean-deep flex items-center justify-center font-bold text-base text-sunflower">9</div>
+                </div>
+            </div>
+
+            <div class="text-center pt-5">
+                <button onclick="checkSudokuSolution()" class="px-6 py-2.5 rounded-full bg-leaf text-ocean-deep font-bold text-sm shadow-md hover:brightness-110 active:scale-95 transition-all">
+                    Bulmacayı Kontrol Et ✨
+                </button>
+            </div>
+
+            <div id="sudoku-result" class="hidden mt-4 p-4 rounded-2xl bg-sunflower/20 border border-sunflower/40 text-center space-y-1">
+                <p class="font-serif font-bold text-sunflower text-base">🎉 HARİKASIN! TEBRİKLER!</p>
+                <p class="text-xs text-white">Bu Sudoku'yu da çözdün bebeğimmmm. Bana ilk kez Sudoku'yu öğretmeye çalıştığın zamanı hatırlıyorum. Seni asla yenemeyeceğim çünkü harika bir hocasın ve bana bile öğrettin. Seni seviyorummm. Her şeyden çok ❤️</p>
+            </div>
+        </section>
+
+        <!-- SPECIAL MILESTONES & MEMORIES GALERY -->
+        <section id="memories" class="space-y-8">
+            <div class="text-center space-y-2">
+                <span class="text-sunflower text-sm font-semibold tracking-widest uppercase">Anı Çizelgemiz</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-gradient-gold">Unutulmaz İlklerimiz</h2>
+                <p class="text-sm text-ocean-light max-w-lg mx-auto">Hayatımda bıraktığın en derin ve en tatlı izlerin hikayesi.</p>
+            </div>
+
+            <!-- Memory Cards Grid -->
+            <div id="memory-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- RANDOM SECRET LOVE NOTES (SIR KUTUSU) -->
+        <section class="glass-card rounded-3xl p-6 sm:p-10 text-center relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-sunflower via-leaf to-ocean-bright"></div>
+            
+            <div class="max-w-2xl mx-auto space-y-6">
+                <div class="w-16 h-16 bg-sunflower/20 rounded-full flex items-center justify-center mx-auto text-sunflower text-2xl border border-sunflower/30">
+                    <i class="fa-solid fa-envelope-open-text"></i>
+                </div>
+
+                <h2 class="text-2xl sm:text-3xl font-serif font-bold text-white">Helin'e Özel Sır Kutusu 💌</h2>
+                <p class="text-xs sm:text-sm text-gray-300">Aşağıdaki butona her bastığında sana kalbimden geçen minik bir not çıkacak:</p>
+
+                <div id="secret-note-box" class="min-h-[110px] glass-card p-6 rounded-2xl flex items-center justify-center border-white/20 transition-all duration-300">
+                    <p id="secret-note-text" class="text-base sm:text-lg font-serif italic text-sunflower leading-relaxed">
+                        "Butona tıkla ve sana hazırladığım ilk sürpriz notu oku... ✨"
+                    </p>
+                </div>
+
+                <button onclick="revealRandomNote()" class="px-6 py-3 rounded-full bg-gradient-to-r from-leaf to-leaf-light text-ocean-deep font-semibold shadow-lg hover:brightness-110 active:scale-95 transition-all flex items-center gap-2 mx-auto">
+                    <i class="fa-solid fa-dice text-ocean-deep"></i> Yeni Bir Not Aç
+                </button>
+            </div>
+        </section>
+
+        <!-- OUR FUTURE BUCKET LIST -->
+        <section class="space-y-6">
+            <div class="text-center space-y-2">
+                <span class="text-leaf-light text-sm font-semibold tracking-widest uppercase">Geleceğe Dair</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white">Birlikte Hayal Ettiklerimiz ✨</h2>
+                <p class="text-sm text-ocean-light">Seninle yapmak istediğim şeylerin listesi. Tamamladıkça üzerini çizebiliriz!</p>
+            </div>
+
+            <div class="glass-card rounded-3xl p-6 sm:p-8 max-w-3xl mx-auto space-y-3" id="bucket-list-container">
+                <!-- Rendered dynamically -->
+            </div>
+        </section>
+
+        <!-- RETRO MUSIC PLAYER CARD -->
+        <section class="glass-card rounded-3xl p-6 sm:p-8 max-w-xl mx-auto text-center space-y-6 border-ocean-bright/30">
+            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-sunflower/20 flex items-center justify-center text-sunflower">
+                        <i class="fa-solid fa-compact-disc animate-spin" style="animation-duration: 8s;"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-serif font-bold text-white text-base">Bizim Şarkı Listemiz</h3>
+                        <p class="text-xs text-ocean-light">Helin & Eziko • Özel Çalma Listesi</p>
+                    </div>
+                </div>
+                <span class="text-xs bg-leaf/20 text-leaf-light px-2.5 py-1 rounded-full border border-leaf/30">Romantik Mod</span>
+            </div>
+
+            <!-- Fake Vinyl Display -->
+            <div class="relative w-32 h-32 sm:w-40 sm:h-40 mx-auto rounded-full bg-black border-4 border-gray-800 shadow-2xl flex items-center justify-center overflow-hidden">
+                <div id="vinyl-disc" class="w-full h-full rounded-full bg-gradient-to-tr from-gray-900 via-gray-800 to-black flex items-center justify-center transition-all duration-700">
+                    <div class="w-12 h-12 rounded-full bg-sunflower border-4 border-ocean-deep flex items-center justify-center">
+                        <div class="w-3 h-3 rounded-full bg-ocean-deep"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Track Info & Controls -->
+            <div class="space-y-2">
+                <h4 id="current-song-title" class="font-semibold text-lg text-sunflower">Aşkın En Tatlı Hali</h4>
+                <p id="current-song-artist" class="text-xs text-gray-300">Sana Özel Şarkımız</p>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden cursor-pointer" onclick="seekAudio(event)">
+                <div id="audio-progress" class="bg-gradient-to-r from-sunflower to-ocean-bright h-full w-1/3 transition-all"></div>
+            </div>
+
+            <div class="flex items-center justify-center gap-6 pt-2">
+                <button onclick="prevTrack()" class="text-gray-300 hover:text-white transition-all text-xl">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button onclick="toggleAudio()" class="w-12 h-12 rounded-full bg-sunflower text-ocean-deep flex items-center justify-center text-xl font-bold hover:scale-105 transition-all shadow-lg">
+                    <i id="player-play-icon" class="fa-solid fa-play ml-0.5"></i>
+                </button>
+                <button onclick="nextTrack()" class="text-gray-300 hover:text-white transition-all text-xl">
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+            </div>
+
+            <audio id="audio-player" loop preload="metadata">
+                <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-acoustic-guitar-112349.mp3" type="audio/mpeg">
+            </audio>
+        </section>
+
+        <!-- FOOTER LOVE MESSAGE -->
+        <footer class="text-center space-y-4 py-8 border-t border-white/10">
+            <p class="font-serif italic text-lg text-sunflower">
+                "Seninle beraber her şeyi yapmak istiyorum. Her buluşmalarımızı not etmek, hediyeleşmeye devam etmek, yanında olmak ve seninle Dünya'yı gezmek ve diğer her şey. Benim her şeyimsin."
+            </p>
+            <p class="text-xs text-ocean-light">
+                Bu site, dünyadaki en harika sevgili <strong class="text-white">Helin</strong> için sonsuz sevgiyle kodlandı. 🌻❤️🐠
+            </p>
+        </footer>
+
+    </main>
+
+    <!-- LOVE IN 50 LANGUAGES (FULL-SCREEN PAGE) -->
+    <div id="love-modal" class="fixed inset-0 z-[60] hidden overflow-y-auto bg-gradient-to-br from-[#06192a] via-ocean-deep to-[#004b76]">
+        <div class="sticky top-0 z-10 glass-card border-b border-white/10 px-4 py-3 md:px-8">
+            <div class="max-w-6xl mx-auto flex justify-between items-center">
+                <span class="font-serif font-bold text-base md:text-lg text-gradient-gold">🌍 50 Dilde Aşkım</span>
+                <button onclick="closeLoveLanguages()" class="px-4 py-1.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-sm flex items-center gap-2 transition-all">
+                    <i class="fa-solid fa-xmark"></i> Kapat
+                </button>
+            </div>
+        </div>
+
+        <div class="max-w-6xl mx-auto px-4 py-10 space-y-10">
+            <div class="text-center space-y-4">
+                <div class="text-5xl animate-bounce">💌</div>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-gradient-gold leading-tight">
+                    Seni Seviyorum Helin 🌻
+                </h2>
+                <p class="text-sm sm:text-base text-ocean-light max-w-2xl mx-auto leading-relaxed">
+                    Dünyada en çok konuşulan 50 dilde sana söylüyorum: <span class="text-sunflower font-semibold">"Seni Seviyorum Helin. Çirkin'in Sana Çok Aşık."</span> ❤️
+                </p>
+            </div>
+
+            <div id="love-languages-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+
+            <p class="text-center text-xs text-ocean-light pb-8">
+                Hangi dilde söylersem söyleyeyim, cevap hep aynı: Sen. 🌍❤️
+            </p>
+        </div>
+    </div>
+
+    <!-- EDIT MODAL (CUSTOMIZATION) -->
+    <div id="edit-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full max-h-[90vh] overflow-y-auto rounded-3xl p-6 sm:p-8 space-y-6 border-sunflower/30">
+            <div class="flex justify-between items-center border-b border-white/10 pb-4">
+                <h3 class="text-xl font-serif font-bold text-sunflower flex items-center gap-2">
+                    <i class="fa-solid fa-sliders"></i> Site İçeriğini Düzenle
+                </h3>
+                <button onclick="closeEditModal()" class="text-gray-400 hover:text-white text-xl">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <p class="text-xs text-ocean-light">
+                Buradan anılarınızın başlıklarını, açıklamalarını ve fotoğraf bağlantılarını değiştirebilirsin. Fotoğraf kutusu boş kalırsa mevcut fotoğraf korunur.
+            </p>
+
+            <div id="modal-memory-inputs" class="space-y-6"></div>
+
+            <div class="flex justify-end gap-3 pt-4 border-t border-white/10">
+                <button onclick="closeEditModal()" class="px-5 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-sm font-medium">İptal</button>
+                <button onclick="saveCustomizations()" class="px-5 py-2.5 rounded-full bg-sunflower text-ocean-deep hover:brightness-110 text-sm font-bold shadow-lg">Kaydet ve Uygula</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        /* ==========================================
+           1. DATA STRUCTURE (INITIAL MEMORIES & NOTES)
+           ========================================== */
+        /* Fotoğraflar base64 olarak doğrudan buraya gömülü (ekstra dosya/link gerekmez).
+           pos: kartta fotoğrafın hangi kısmının görüneceği (yüzler kesilmesin diye) */
+        const defaultMemories = [
+            {
+                id: 'first-date',
+                title: 'İlk Buluşmamız ❤️',
+                date: '1 Nisan',
+                desc: 'Gözlerinin içine bakıp saatlerin nasıl geçtiğini anlamadığım, hayatımın en heyecanlı ve güzel günü.',
+                img: 'img/first-date.jpg',
+                pos: 'center 35%'
+            },
+            {
+                id: 'first-drive',
+                title: 'İlk Beraber Araba Sürüşümüz 🚗',
+                date: 'Unutulmaz An',
+                desc: 'Direksiyonda sen, yanında ben... O kadar güzel bir gündü ki. Beraber kent ormanında pizza da yemiştik. Arabayı çok güzel sürüyorsun hayatım ve çok geliştinnnn.',
+                img: 'img/first-drive.jpg',
+                pos: 'center 45%'
+            },
+            {
+                id: 'first-out-car',
+                title: 'Araba İle İlk Dışarı Çıkışımız 🌟',
+                date: 'Özel Gece',
+                desc: 'Müziğin sesini açıp, yolları lara plajına sürdüğümüz o özgürlük hissi.',
+                img: 'img/first-out-car.jpg',
+                pos: 'center 45%'
+            },
+            {
+                id: 'first-swim',
+                title: 'Birlikte İlk Yüzüşümüz 🌊',
+                date: 'Balıklar & Mavi',
+                desc: 'Maviliklerin içinde gülüşmek ve serinlemek... En güzeli ise sevgilimin yanımda olması',
+                img: 'img/first-swim.jpg',
+                pos: 'center 40%'
+            },
+            {
+                id: 'first-gift',
+                title: 'İlk Hediyeleşmemiz 🎁',
+                date: 'Anlamlı Dokunuş',
+                desc: 'Verdiğim ilk hediye aslında o penguendi. Penguuuuuu. Seni seviyorum',
+                img: 'img/first-gift.jpg',
+                pos: 'center 30%'
+            },
+            {
+                id: 'first-bday',
+                title: 'İlk Doğum Günümüz 🎂',
+                date: 'Kutlama Günü',
+                desc: 'Her ne kadar doğum gününde Antalyada olsam bile, geldiğin zaman elimden gelen en güzel doğum gününü kutlamaya çalıştım bebi. Seneye daha iyi şekilde kutlayacağımmm',
+                img: 'img/first-bday.jpg',
+                pos: 'center 55%'
+            }
+        ];
+
+        const secretNotes = [
+            "Seninle 7. ayımıza gireceğim sevgilim. Tanışmamızdan önce; seninle tanışmadığım, seninle konuşmadığım zamanların nasıl geçtiğini bilmiyorum. Başıma gelen en güzel şey seninle tanışmış olmam. Bu kadar şanslı olduğum için çok mutluyum ve gerçekten şükrediyorum. İyi ki varsın ve iyi ki seninleyim <3",
+            "COP konferansındaki o konuşmanı dinlerken gururdan gözlerim dolacak, eminim!",
+            "Günün en heyecanla beklediğim vakti, seninle beraber olduğum vakit",
+            "Sudoku çözerken takındığın o tatlı odaklanmış bakışına bayılıyorum!",
+            "Sana her alanda inanıyorum hayatım. Her şeyi başarabileceğini biliyorum ve sana her zaman yardımcı olmak istiyorum ve her zaman yanında olacağım",
+            "İyi ki 1 Nisan'da o ilk adımı attık, iyi ki hayatımdasın benim ilham kaynağım!"
+        ];
+
+       const bucketListItems = [
+    { id: 1, text: "COP Konferansı konuşmandan sonra sana sarılıp tebrik etmek", checked: false },
+    { id: 2, text: "Birlikte araba yolculuğu yapmak", checked: true },
+    { id: 3, text: "Ayçiçeği tarlalarının ortasında gün batımında fotoğraf çekilmek", checked: false },
+    { id: 4, text: "Gözlerden uzak bir koyda balıklarla birlikte yüzmek", checked: true },
+    { id: 5, text: "Pazar sabahları kahve eşliğinde zorlu Sudokular çözmek", checked: false },
+    { id: 6, text: "Beraber kamp yapmak.", checked: false }
+];
+
+        /* "Seni seviyorum Helin. Çirkin'in Sana Çok Aşık." — 50 dilde
+           Her satır: [bayrak, dilin adı, metin, sağdan sola mı?] */
+        const loveLanguages = [
+            ['🇬🇧', 'İngilizce', "I love you, Helin. Your Çirkin is so in love with you."],
+            ['🇨🇳', 'Mandarin Çincesi', "我爱你，Helin。你的 Çirkin 深深地爱着你。"],
+            ['🇪🇸', 'İspanyolca', "Te quiero, Helin. Tu Çirkin está muy enamorado de ti."],
+            ['🇮🇳', 'Hintçe', "मैं तुमसे प्यार करता हूँ, Helin। तुम्हारा Çirkin तुम्हारे प्यार में पूरी तरह डूबा है।"],
+            ['🇸🇦', 'Arapça', "أحبكِ يا Helin. Çirkin الخاص بكِ واقع في حبكِ جدًا.", true],
+            ['🇫🇷', 'Fransızca', "Je t'aime, Helin. Ton Çirkin est éperdument amoureux de toi."],
+            ['🇧🇩', 'Bengalce', "আমি তোমাকে ভালোবাসি, Helin। তোমার Çirkin তোমার প্রেমে পাগল।"],
+            ['🇧🇷', 'Portekizce', "Eu te amo, Helin. O seu Çirkin está muito apaixonado por você."],
+            ['🇷🇺', 'Rusça', "Я люблю тебя, Helin. Твой Çirkin безумно в тебя влюблён."],
+            ['🇵🇰', 'Urduca', "میں تم سے محبت کرتا ہوں، Helin۔ تمہارا Çirkin تم سے بے حد محبت کرتا ہے۔", true],
+            ['🇮🇩', 'Endonezce', "Aku cinta kamu, Helin. Çirkin-mu sangat jatuh cinta padamu."],
+            ['🇩🇪', 'Almanca', "Ich liebe dich, Helin. Dein Çirkin ist unsterblich in dich verliebt."],
+            ['🇯🇵', 'Japonca', "愛してるよ、Helin。君の Çirkin は君にメロメロだよ。"],
+            ['🇰🇪', 'Svahili', "Nakupenda, Helin. Çirkin wako ana mapenzi makubwa sana kwako."],
+            ['🇮🇳', 'Marathi', "मी तुझ्यावर प्रेम करतो, Helin. तुझा Çirkin तुझ्या प्रेमात वेडा झाला आहे."],
+            ['🇮🇳', 'Telugu', "నేను నిన్ను ప్రేమిస్తున్నాను, Helin. నీ Çirkin నీ ప్రేమలో పూర్తిగా మునిగిపోయాడు."],
+            ['🇮🇳', 'Tamilce', "நான் உன்னை காதலிக்கிறேன், Helin. உன் Çirkin உன் காதலில் மூழ்கிவிட்டான்."],
+            ['🇭🇰', 'Kantonca', "我愛你，Helin。你嘅 Çirkin 好鍾意你。"],
+            ['🇻🇳', 'Vietnamca', "Anh yêu em, Helin. Çirkin của em đang yêu em say đắm."],
+            ['🇰🇷', 'Korece', "사랑해, Helin. 너의 Çirkin은 너에게 푹 빠졌어."],
+            ['🇮🇹', 'İtalyanca', "Ti amo, Helin. Il tuo Çirkin è perdutamente innamorato di te."],
+            ['🇹🇭', 'Tayca', "ฉันรักเธอ Helin Çirkin ของเธอหลงรักเธอหมดหัวใจ"],
+            ['🇮🇳', 'Gujarati', "હું તને પ્રેમ કરું છું, Helin. તારો Çirkin તારા પ્રેમમાં પાગલ છે."],
+            ['🇮🇷', 'Farsça', "دوستت دارم، Helin. Çirkin تو دیوانهٔ توست.", true],
+            ['🇵🇱', 'Lehçe', "Kocham cię, Helin. Twój Çirkin jest w tobie szaleńczo zakochany."],
+            ['🇺🇦', 'Ukraynaca', "Я кохаю тебе, Helin. Твій Çirkin шалено в тебе закоханий."],
+            ['🇲🇾', 'Malayca', "Saya cintakan awak, Helin. Çirkin awak sangat jatuh cinta pada awak."],
+            ['🇮🇳', 'Pencapça', "ਮੈਂ ਤੈਨੂੰ ਪਿਆਰ ਕਰਦਾ ਹਾਂ, Helin। ਤੇਰਾ Çirkin ਤੇਰੇ ਪਿਆਰ ਵਿੱਚ ਪਾਗਲ ਹੈ।"],
+            ['🇮🇳', 'Kannada', "ನಾನು ನಿನ್ನನ್ನು ಪ್ರೀತಿಸುತ್ತೇನೆ, Helin. ನಿನ್ನ Çirkin ನಿನ್ನ ಪ್ರೀತಿಯಲ್ಲಿ ಮುಳುಗಿಹೋಗಿದ್ದಾನೆ."],
+            ['🇮🇳', 'Malayalam', "ഞാൻ നിന്നെ സ്നേഹിക്കുന്നു, Helin. നിന്റെ Çirkin നിന്നെ അതിയായി പ്രണയിക്കുന്നു."],
+            ['🇳🇱', 'Felemenkçe', "Ik hou van je, Helin. Je Çirkin is smoorverliefd op jou."],
+            ['🇷🇴', 'Romence', "Te iubesc, Helin. Çirkin al tău este nebunește de îndrăgostit de tine."],
+            ['🇬🇷', 'Yunanca', "Σ' αγαπώ, Helin. Ο Çirkin σου είναι τρελά ερωτευμένος μαζί σου."],
+            ['🇨🇿', 'Çekçe', "Miluji tě, Helin. Tvůj Çirkin je do tebe šíleně zamilovaný."],
+            ['🇸🇪', 'İsveççe', "Jag älskar dig, Helin. Din Çirkin är helt förälskad i dig."],
+            ['🇭🇺', 'Macarca', "Szeretlek, Helin. A te Çirkinod őrülten szerelmes beléd."],
+            ['🇮🇱', 'İbranice', "אני אוהב אותך, Helin. ה־Çirkin שלך מאוהב בך מאוד.", true],
+            ['🇫🇮', 'Fince', "Rakastan sinua, Helin. Çirkin on päätäpahkaa rakastunut sinuun."],
+            ['🇩🇰', 'Danca', "Jeg elsker dig, Helin. Din Çirkin er helt vildt forelsket i dig."],
+            ['🇳🇴', 'Norveççe', "Jeg elsker deg, Helin. Din Çirkin er helt forelsket i deg."],
+            ['🇧🇬', 'Bulgarca', "Обичам те, Helin. Твоят Çirkin е лудо влюбен в теб."],
+            ['🇷🇸', 'Sırpça', "Volim te, Helin. Tvoj Çirkin je do ušiju zaljubljen u tebe."],
+            ['🇵🇭', 'Filipince', "Mahal kita, Helin. Ang iyong Çirkin ay baliw na baliw sa pag-ibig sa iyo."],
+            ['🇳🇬', 'Hausaca', "Ina son ki, Helin. Çirkin naki yana matuƙar son ki."],
+            ['🇳🇬', 'Yorubaca', "Mo nífẹ̀ẹ́ rẹ, Helin. Çirkin rẹ nífẹ̀ẹ́ rẹ gidigidi."],
+            ['🇪🇹', 'Amharca', "እወድሻለሁ Helin። Çirkin ያንቺ በጣም ይወድሻል።"],
+            ['🇳🇵', 'Nepalce', "म तिमीलाई माया गर्छु, Helin। तिम्रो Çirkin तिमीसँग धेरै प्रेममा छ।"],
+            ['🇱🇰', 'Sinhala', "මම ඔයාට ආදරෙයි, Helin. ඔයාගේ Çirkin ඔයාට ගොඩක් ආදරෙයි."],
+            ['🇺🇿', 'Özbekçe', "Men seni sevaman, Helin. Sening Çirkining senga qattiq oshiq."],
+            ['🇦🇿', 'Azerice', "Səni sevirəm, Helin. Çirkinin sənə çox aşiqdir."]
+        ];
+
+        let memories = defaultMemories.map(m => ({ ...m }));
+
+        /* ==========================================
+           2. LIVE TIMER LOGIC (1 April Counter)
+           ========================================== */
+        function getStartDate() {
+            const now = new Date();
+            let start = new Date(now.getFullYear(), 3, 1, 0, 0, 0);
+            if (now < start) {
+                start = new Date(now.getFullYear() - 1, 3, 1, 0, 0, 0);
+            }
+            return start;
+        }
+
+        const startDate = getStartDate();
+
+        function updateLiveCounter() {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - startDate) / 1000);
+            if (diffInSeconds < 0) return;
+
+            const years = Math.floor(diffInSeconds / (365.25 * 24 * 3600));
+            const remAfterYears = diffInSeconds % (365.25 * 24 * 3600);
+            
+            const months = Math.floor(remAfterYears / (30.44 * 24 * 3600));
+            const remAfterMonths = remAfterYears % (30.44 * 24 * 3600);
+            
+            const days = Math.floor(remAfterMonths / (24 * 3600));
+            const remAfterDays = remAfterMonths % (24 * 3600);
+
+            const hours = Math.floor(remAfterDays / 3600);
+            const remAfterHours = remAfterDays % 3600;
+
+            const minutes = Math.floor(remAfterHours / 60);
+            const seconds = remAfterHours % 60;
+
+            document.getElementById('cnt-years').innerText = years;
+            document.getElementById('cnt-months').innerText = months;
+            document.getElementById('cnt-days').innerText = days;
+            document.getElementById('cnt-hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('cnt-minutes').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('cnt-seconds').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateLiveCounter, 1000);
+        updateLiveCounter();
+
+        /* ==========================================
+           3. QUIZ & SUDOKU LOGIC
+           ========================================== */
+        function handleQuizAnswer(isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            feedback.classList.remove('hidden');
+
+            if (isCorrect) {
+                // Heart explosion & confetti
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#ffb703', '#ff0055', '#2a9d8f', '#ffffff']
+                });
+
+                // Spawn floating hearts burst
+                for(let i=0; i<30; i++) {
+                    setTimeout(() => {
+                        const heart = document.createElement('div');
+                        heart.className = 'fixed text-3xl pointer-events-none z-50 animate-bounce';
+                        heart.innerText = ['❤️', '💖', '🌻', '🐠'][Math.floor(Math.random()*4)];
+                        heart.style.left = Math.random() * 90 + 'vw';
+                        heart.style.top = Math.random() * 80 + 'vh';
+                        document.body.appendChild(heart);
+                        setTimeout(() => heart.remove(), 2500);
+                    }, i * 60);
+                }
+            }
+        }
+
+        // 9x9 Sudoku kontrolü: her kutudaki data-answer ile karşılaştırılır
+        function checkSudokuSolution() {
+            const inputs = document.querySelectorAll('input[id^="sudoku-"]');
+            const result = document.getElementById('sudoku-result');
+            let allCorrect = true;
+
+            inputs.forEach(function (input) {
+                const isCorrect = input.value.trim() === input.dataset.answer;
+                input.classList.toggle('ring-2', !isCorrect);
+                input.classList.toggle('ring-inset', !isCorrect);
+                input.classList.toggle('ring-red-400', !isCorrect);
+                if (!isCorrect) allCorrect = false;
+            });
+
+            if (allCorrect) {
+                result.classList.remove('hidden');
+                confetti({ particleCount: 80, spread: 60, origin: { y: 0.7 } });
+                result.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                result.classList.add('hidden');
+                alert("Ufak bir yanlışlık var gibi kraliçem! Kırmızı çerçeveli kutulara bir daha göz at istersen 🧩❤️");
+            }
+        }
+
+        /* ==========================================
+           4. "SENİ SEVİYORUM" 50 DİL SAYFASI
+           ========================================== */
+        function renderLoveLanguages() {
+            const grid = document.getElementById('love-languages-grid');
+            if (grid.childElementCount) return;
+
+            loveLanguages.forEach(function (item, i) {
+                const flag = item[0], name = item[1], text = item[2], rtl = item[3];
+                const card = document.createElement('div');
+                card.className = 'lang-card glass-card glass-card-hover rounded-2xl p-5 flex flex-col gap-3 border-white/10';
+                card.style.animationDelay = (i * 40) + 'ms';
+                card.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <span class="text-sm font-semibold text-sunflower">${flag} ${name}</span>
+                        <span class="text-xs text-ocean-light">#${i + 1}</span>
+                    </div>
+                    <p class="text-base leading-relaxed text-white font-serif ${rtl ? 'text-right' : ''}" ${rtl ? 'dir="rtl"' : ''}>${text}</p>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function openLoveLanguages() {
+            renderLoveLanguages();
+            const modal = document.getElementById('love-modal');
+            modal.classList.remove('hidden');
+            modal.scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+            confetti({ particleCount: 90, spread: 80, origin: { y: 0.3 }, colors: ['#ffb703', '#ff0055', '#2a9d8f', '#ffffff'] });
+        }
+
+        function closeLoveLanguages() {
+            document.getElementById('love-modal').classList.add('hidden');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeLoveLanguages();
+        });
+
+        /* ==========================================
+           5. RENDER FUNCTIONS & INITIALIZATION
+           ========================================== */
+        function renderMemories() {
+            const container = document.getElementById('memory-cards-container');
+            container.innerHTML = '';
+
+            memories.forEach(mem => {
+                const card = document.createElement('div');
+                card.className = 'glass-card glass-card-hover rounded-3xl overflow-hidden flex flex-col border-white/10 group';
+                card.innerHTML = `
+                    <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-ocean-deep">
+                        <img src="${mem.img}" alt="${mem.title}" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                             style="object-position: ${mem.pos || 'center'};"
+                             onerror="this.src='https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=800&q=80'" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 via-transparent to-transparent"></div>
+                        <span class="absolute top-3 right-3 px-3 py-1 rounded-full text-xs font-semibold bg-sunflower text-ocean-deep shadow">
+                            ${mem.date}
+                        </span>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-3">
+                        <div>
+                            <h3 class="text-xl font-serif font-bold text-white group-hover:text-sunflower transition-colors">${mem.title}</h3>
+                            <p class="text-xs sm:text-sm text-gray-300 mt-2 leading-relaxed">${mem.desc}</p>
+                        </div>
+                        <div class="pt-2 flex items-center text-xs text-leaf-light font-medium">
+                            <i class="fa-solid fa-heart text-sunflower mr-1.5"></i> Unutulmaz Bir Anı
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderBucketList() {
+            const container = document.getElementById('bucket-list-container');
+            container.innerHTML = '';
+
+            bucketListItems.forEach(item => {
+                const div = document.createElement('div');
+                div.className = `flex items-center justify-between p-3.5 rounded-2xl transition-all cursor-pointer border ${item.checked ? 'bg-leaf/10 border-leaf/30 text-gray-300' : 'bg-white/5 border-white/10 hover:bg-white/10 text-white'}`;
+                div.onclick = () => {
+                    item.checked = !item.checked;
+                    renderBucketList();
+                };
+
+                div.innerHTML = `
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-lg flex items-center justify-center text-xs ${item.checked ? 'bg-leaf text-ocean-deep' : 'border border-white/30 text-transparent'}">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <span class="text-sm sm:text-base ${item.checked ? 'line-through text-gray-400' : 'font-medium'}">${item.text}</span>
+                    </div>
+                    <i class="fa-solid ${item.checked ? 'fa-heart text-leaf-light' : 'fa-star text-sunflower/40'} text-xs"></i>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+    let noteIndex = 0;
+function revealRandomNote() {
+    const idx = noteIndex;
+    noteIndex = (noteIndex + 1) % secretNotes.length;
+
+    const noteBox = document.getElementById('secret-note-box');
+    const noteText = document.getElementById('secret-note-text');
+
+    noteBox.classList.add('opacity-0', 'scale-95');
+
+    setTimeout(() => {
+        noteText.innerText = `"${secretNotes[idx]}"`;
+        noteBox.classList.remove('opacity-0', 'scale-95');
+        noteBox.classList.add('opacity-100', 'scale-100');
+    }, 200);
+}
+
+        const audio = document.getElementById('audio-player');
+        let isPlaying = false;
+
+        function toggleAudio() {
+            const btnText = document.getElementById('music-text');
+            const musicIcon = document.getElementById('music-icon');
+            const playerIcon = document.getElementById('player-play-icon');
+            const vinyl = document.getElementById('vinyl-disc');
+
+            if (isPlaying) {
+                audio.pause();
+                isPlaying = false;
+                btnText.innerText = 'Müziği Başlat';
+                musicIcon.className = 'fa-solid fa-music text-sunflower';
+                playerIcon.className = 'fa-solid fa-play ml-0.5';
+                vinyl.classList.remove('animate-spin');
+            } else {
+                audio.play().then(() => {
+                    isPlaying = true;
+                    btnText.innerText = 'Müzik Çalıyor';
+                    musicIcon.className = 'fa-solid fa-compact-disc text-sunflower animate-spin';
+                    playerIcon.className = 'fa-solid fa-pause';
+                    vinyl.classList.add('animate-spin');
+                }).catch(e => console.log(e));
+            }
+        }
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const pct = (audio.currentTime / audio.duration) * 100;
+                document.getElementById('audio-progress').style.width = `${pct}%`;
+            }
+        });
+
+        function seekAudio(e) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            if (audio.duration) {
+                audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+            }
+        }
+
+        function prevTrack() { audio.currentTime = 0; }
+        function nextTrack() { revealRandomNote(); audio.currentTime = 0; }
+
+        function createHeartParticles() {
+            const container = document.getElementById('hearts-container');
+            const icons = ['❤️', '🌻', '✨', '🐠', '🌊'];
+
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-particle';
+                heart.innerText = icons[Math.floor(Math.random() * icons.length)];
+                heart.style.left = `${Math.random() * 100}vw`;
+                heart.style.animationDuration = `${6 + Math.random() * 6}s`;
+                heart.style.animationDelay = `${Math.random() * 5}s`;
+                heart.style.fontSize = `${14 + Math.random() * 16}px`;
+                container.appendChild(heart);
+            }
+        }
+
+        function openEditModal() {
+            const container = document.getElementById('modal-memory-inputs');
+            container.innerHTML = '';
+
+            memories.forEach((mem, index) => {
+                const group = document.createElement('div');
+                group.className = 'p-4 rounded-2xl bg-white/5 border border-white/10 space-y-3';
+                const imgVal = (mem.img || '').startsWith('data:') ? '' : mem.img;
+                group.innerHTML = `
+                    <h4 class="text-sm font-semibold text-sunflower">${mem.title}</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="text-xs text-gray-300 block mb-1">Açıklama</label>
+                            <input type="text" id="input-desc-${index}" value="${mem.desc.replace(/"/g, '&quot;')}" 
+                                   class="w-full bg-ocean-deep border border-white/20 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-sunflower" />
+                        </div>
+                        <div>
+                            <label class="text-xs text-gray-300 block mb-1">Fotoğraf URL'si (boşsa mevcut kalır)</label>
+                            <input type="text" id="input-img-${index}" value="${imgVal}" placeholder="Mevcut fotoğraf korunuyor" 
+                                   class="w-full bg-ocean-deep border border-white/20 rounded-xl px-3 py-1.5 text-xs text-white focus:outline-none focus:border-sunflower" />
+                        </div>
+                    </div>
+                `;
+                container.appendChild(group);
+            });
+
+            document.getElementById('edit-modal').classList.remove('hidden');
+        }
+
+        function closeEditModal() {
+            document.getElementById('edit-modal').classList.add('hidden');
+        }
+
+        /* Sadece değişiklikler (açıklama + elle girilen foto URL'leri) saklanır;
+           gömülü fotoğraflar localStorage'a kopyalanmaz. */
+        function saveCustomizations() {
+            const overrides = {};
+            memories.forEach((mem, index) => {
+                const newDesc = document.getElementById(`input-desc-${index}`).value;
+                const newImg = document.getElementById(`input-img-${index}`).value.trim();
+                if (newDesc) mem.desc = newDesc;
+                if (newImg) mem.img = newImg;
+                overrides[mem.id] = {
+                    desc: mem.desc,
+                    img: (mem.img || '').startsWith('data:') ? null : mem.img
+                };
+            });
+
+            try { localStorage.setItem('helin_site_memories_v3', JSON.stringify(overrides)); } catch (e) {}
+            renderMemories();
+            closeEditModal();
+        }
+
+        function loadStoredData() {
+            try {
+                const stored = localStorage.getItem('helin_site_memories_v3');
+                if (!stored) return;
+                const overrides = JSON.parse(stored);
+                memories.forEach(mem => {
+                    const o = overrides[mem.id];
+                    if (!o) return;
+                    if (o.desc) mem.desc = o.desc;
+                    if (o.img) mem.img = o.img;
+                });
+            } catch (e) {}
+        }
+
+        window.onload = function() {
+            loadStoredData();
+            renderMemories();
+            renderBucketList();
+            createHeartParticles();
+        };
+    </script>
+</body>
+</html>
