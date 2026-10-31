@@ -572,10 +572,6 @@
         </section>
 
         
-      <section class="glass-card rounded-3xl p-6 sm:p-8 max-w-xl mx-auto text-center space-y-4 border-ocean-bright/30">
-            <h3 class="font-serif font-bold text-white text-xl">Bizim Şarkılarımız 🎶</h3>
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4v47MrUHAfa6fpEoYl7znW?utm_source=generator&si=fbbffee7e0134730" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </section>
         <!-- RETRO MUSIC PLAYER CARD -->
         <section class="glass-card rounded-3xl p-6 sm:p-8 max-w-xl mx-auto text-center space-y-6 border-ocean-bright/30">
             <div class="flex items-center justify-between border-b border-white/10 pb-4">
@@ -623,9 +619,7 @@
                 </button>
             </div>
 
-            <audio id="audio-player" loop preload="metadata">
-                <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-acoustic-guitar-112349.mp3" type="audio/mpeg">
-            </audio>
+            <audio id="audio-player" preload="metadata"></audio>
         </section>
 
         <!-- FOOTER LOVE MESSAGE -->
@@ -1045,50 +1039,96 @@ function revealRandomNote() {
         noteBox.classList.add('opacity-100', 'scale-100');
     }, 200);
 }
+const playlist = [
+    { title: 'Hey There Delilah', artist: "Plain White T's", src: 'music/sarki01.mp3' },
+    { title: 'Veridis Quo', artist: 'Daft Punk', src: 'music/sarki02.mp3' },
+    { title: 'Instant Crush', artist: 'Daft Punk', src: 'music/sarki03.mp3' },
+    { title: 'Sakin Ol Evladım', artist: 'Kalben', src: 'music/sarki04.mp3' },
+    { title: 'Düşünürüm', artist: 'Kalben', src: 'music/sarki05.mp3' },
+    { title: 'Babydoll', artist: 'Dominic Fike', src: 'music/sarki06.mp3' },
+    { title: 'Rüzgar', artist: 'Kalben', src: 'music/sarki07.mp3' },
+    { title: 'Dön Bak Dünyaya', artist: 'Pinhani', src: 'music/sarki08.mp3' },
+    { title: 'Taş', artist: 'Gökhan Türkmen', src: 'music/sarki09.mp3' },
+    { title: 'Sakinleştim', artist: 'Pinhani', src: 'music/sarki10.mp3' }
+];
 
-        const audio = document.getElementById('audio-player');
-        let isPlaying = false;
+const audio = document.getElementById('audio-player');
+let isPlaying = false;
+let currentTrack = 0;
 
-        function toggleAudio() {
-            const btnText = document.getElementById('music-text');
-            const musicIcon = document.getElementById('music-icon');
-            const playerIcon = document.getElementById('player-play-icon');
-            const vinyl = document.getElementById('vinyl-disc');
+function loadTrack(index) {
+    currentTrack = (index + playlist.length) % playlist.length;
+    const t = playlist[currentTrack];
+    audio.src = t.src;
+    document.getElementById('current-song-title').innerText = t.title;
+    document.getElementById('current-song-artist').innerText = t.artist;
+}
 
-            if (isPlaying) {
-                audio.pause();
-                isPlaying = false;
-                btnText.innerText = 'Müziği Başlat';
-                musicIcon.className = 'fa-solid fa-music text-sunflower';
-                playerIcon.className = 'fa-solid fa-play ml-0.5';
-                vinyl.classList.remove('animate-spin');
-            } else {
-                audio.play().then(() => {
-                    isPlaying = true;
-                    btnText.innerText = 'Müzik Çalıyor';
-                    musicIcon.className = 'fa-solid fa-compact-disc text-sunflower animate-spin';
-                    playerIcon.className = 'fa-solid fa-pause';
-                    vinyl.classList.add('animate-spin');
-                }).catch(e => console.log(e));
-            }
-        }
+function setPlayingUI(playing) {
+    const btnText = document.getElementById('music-text');
+    const musicIcon = document.getElementById('music-icon');
+    const playerIcon = document.getElementById('player-play-icon');
+    const vinyl = document.getElementById('vinyl-disc');
 
-        audio.addEventListener('timeupdate', () => {
-            if (audio.duration) {
-                const pct = (audio.currentTime / audio.duration) * 100;
-                document.getElementById('audio-progress').style.width = `${pct}%`;
-            }
-        });
+    if (playing) {
+        btnText.innerText = 'Müzik Çalıyor';
+        musicIcon.className = 'fa-solid fa-compact-disc text-sunflower animate-spin';
+        playerIcon.className = 'fa-solid fa-pause';
+        vinyl.classList.add('animate-spin');
+    } else {
+        btnText.innerText = 'Müziği Başlat';
+        musicIcon.className = 'fa-solid fa-music text-sunflower';
+        playerIcon.className = 'fa-solid fa-play ml-0.5';
+        vinyl.classList.remove('animate-spin');
+    }
+}
 
-        function seekAudio(e) {
-            const rect = e.currentTarget.getBoundingClientRect();
-            if (audio.duration) {
-                audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
-            }
-        }
+function toggleAudio() {
+    if (!audio.src) loadTrack(0);
 
-        function prevTrack() { audio.currentTime = 0; }
-        function nextTrack() { revealRandomNote(); audio.currentTime = 0; }
+    if (isPlaying) {
+        audio.pause();
+        isPlaying = false;
+        setPlayingUI(false);
+    } else {
+        audio.play().then(() => {
+            isPlaying = true;
+            setPlayingUI(true);
+        }).catch(e => console.log(e));
+    }
+}
+
+// Şarkı bitince sıradakine geç, liste bitince başa dön
+audio.addEventListener('ended', () => {
+    loadTrack(currentTrack + 1);
+    audio.play();
+});
+
+audio.addEventListener('timeupdate', () => {
+    if (audio.duration) {
+        const pct = (audio.currentTime / audio.duration) * 100;
+        document.getElementById('audio-progress').style.width = `${pct}%`;
+    }
+});
+
+function seekAudio(e) {
+    const rect = e.currentTarget.getBoundingClientRect();
+    if (audio.duration) {
+        audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
+    }
+}
+
+function prevTrack() {
+    loadTrack(currentTrack - 1);
+    if (isPlaying) audio.play();
+}
+
+function nextTrack() {
+    loadTrack(currentTrack + 1);
+    if (isPlaying) audio.play();
+}
+
+loadTrack(0);
 
         function createHeartParticles() {
             const container = document.getElementById('hearts-container');
